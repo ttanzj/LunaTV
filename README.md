@@ -85,6 +85,25 @@
 
 **⚠️ 重要提示**：部署完成后，需要在 Zeabur 中为 LunaTV 服务设置访问域名（Domain）才能在浏览器中访问。详见下方 [设置访问域名](#5-设置访问域名必须) 步骤。
 
+### Leapcell 存储（可以）
+
+要用rediss://default:password@xxx.leapcell redis.com:6379
+格式，注意rediss是双S，且密码中不能有/，如有可以用https://www.urlencoder.org/ 
+
+编译输入密码 → 选 "Encode"（或 percent-encode component）
+输出类似：Ae000009xO9POQktK5lhUM%2FcBpooPXct7Rhp1M7Dt5tG4mqYIXPuUVcAGNoWIz4voCu81Mu
+
+（注意：/ → %2F，如果有 @ 变成 %40，: 变成 %3A 等）
+
+USERNAME   admin   管理员账号（自己设） 
+PASSWORD   你的强密码1234qwer   管理员密码（必须改） 
+NEXT_PUBLIC_STORAGE_TYPE  redis  必须是 redis（Leapcell 用这个）  
+REDIS_URL   rediss://default:你的密码@host:port    
+NEXT_PUBLIC_SITE_NAME   LunaTV - 我的小电视  可选，显示的站点名字  
+ANNOUNCEMENT  仅限个人使用，禁止商业化    可选，公告  
+NEXT_PUBLIC_DOUBAN_PROXY_TYPE   cors-proxy-zwei   推荐（解决豆瓣图片跨域）  
+NEXT_PUBLIC_DISABLE_YELLOW_FILTER=1   黄暴过滤开关
+
 ### Kvrocks 存储（推荐）
 
 ```yml
