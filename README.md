@@ -105,15 +105,17 @@
 -NEXT_PUBLIC_DISABLE_YELLOW_FILTER=1   黄暴过滤开关
 
 **⚠️ Leapcell的redis外链经常报错，但能用，改src/lib/redis-base.db.ts文件中的下面函数可适当缓解**
--socket: {
--  tls: true,
--  rejectUnauthorized: false,
--  keepAlive: 60000,        // 加大到 60 秒
--  noDelay: true,
--  connectTimeout: 15000,
--},
--pingInterval: 15000,       // 每 15 秒 ping
 
+```yml
+socket: {
+  tls: true,
+  rejectUnauthorized: false,
+  keepAlive: 60000,        // 加大到 60 秒
+  noDelay: true,
+  connectTimeout: 15000,
+},
+pingInterval: 15000,       // 每 15 秒 ping
+```
 ### Kvrocks 存储（推荐）
 
 ```yml
