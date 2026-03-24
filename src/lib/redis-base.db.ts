@@ -87,7 +87,7 @@ export function createRedisClient(config: RedisConnectionConfig, globalSymbol: s
       socket: {
         // 重连策略：指数退避，最大30秒
         reconnectStrategy: (retries: number) => {
-          console.log(`${config.clientName} reconnection attempt ${retries + 1}`);
+          console。log(`${config.clientName} reconnection attempt ${retries + 1}`);
           if (retries > 10) {
             console.error(`${config.clientName} max reconnection attempts exceeded`);
             return false; // 停止重连
@@ -277,7 +277,7 @@ export abstract class BaseRedisStorage implements IStorage {
   async checkUserExist(userName: string): Promise<boolean> {
     // 使用 EXISTS 判断 key 是否存在
     const exists = await this.withRetry(() =>
-      this.client.exists(this.userPwdKey(userName))
+      this。client。exists(this.userPwdKey(userName))
     );
     return exists === 1;
   }
