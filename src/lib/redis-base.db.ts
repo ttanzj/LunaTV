@@ -88,9 +88,9 @@ export function createRedisClient(config: RedisConnectionConfig, globalSymbol: s
       socket: {
         tls: true,                          // 强制启用 TLS（Leapcell rediss:// 必须）
         rejectUnauthorized: false,          // Leapcell 证书验证有时失败，临时关闭（安全可后续优化）
-        keepAlive: 45000,                   // 关键：每45秒保持连接活性，防止 Vercel idle 断开
+        keepAlive: 60000,                   // 关键：每45秒保持连接活性，防止 Vercel idle 断开
         noDelay: true,
-        connectTimeout: 10000,              // 10秒连接超时
+        connectTimeout: 15000,              // 10秒连接超时
       },
 
       // 重连策略（保留并优化你的原有逻辑）
