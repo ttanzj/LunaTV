@@ -87,8 +87,8 @@
 
 ### Leapcell 存储（可以）
 
-要用rediss://default:password@xxx.leapcell redis.com:6379
-格式，注意rediss是双S，且密码中不能有/，如有可以用https://www.urlencoder.org/ 
+要用rediss://default:password@xxx.leapcell redis.com:6379（现在redis也可以）
+格式，且密码中不能有/，如有可以用https://www.urlencoder.org/ 
 
 编译输入密码 → 选 "Encode"（或 percent-encode component）
 输出类似：Ae000009xO9POQktK5lhUM%2FcBpooPXct7Rhp1M7Dt5tG4mqYIXPuUVcAGNoWIz4voCu81Mu
@@ -103,6 +103,15 @@
 -ANNOUNCEMENT  仅限个人使用，禁止商业化    可选，公告  
 -NEXT_PUBLIC_DOUBAN_PROXY_TYPE   cors-proxy-zwei   推荐（解决豆瓣图片跨域）  
 -NEXT_PUBLIC_DISABLE_YELLOW_FILTER=1   黄暴过滤开关
+**⚠️ Leapcell的redis外链经常报错，但能用，改src/lib/redis-base.db.ts文件中的下面函数可适当缓解**
+-socket: {
+-  tls: true,
+-  rejectUnauthorized: false,
+-  keepAlive: 60000,        // 加大到 60 秒
+-  noDelay: true,
+-  connectTimeout: 15000,
+-},
+-pingInterval: 15000,       // 每 15 秒 ping
 
 ### Kvrocks 存储（推荐）
 
